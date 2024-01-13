@@ -1,0 +1,191 @@
+@import '@/style/mixins.scss';
+@import url("/fonts/Inter/stylesheet.css");
+
+body{
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+#app{
+    height: 100vh;
+}
+
+.shadow-block{
+    background: var(--c-white);
+    box-shadow: var(--shadow);
+}
+
+*::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+
+    &-track{
+        background: #0042690F;
+    }
+
+    &-thumb{
+        background: #0042693D;
+        border-radius: 4px;
+    }
+}
+
+.select-wr{
+    position: relative;
+    display: flex;
+
+    font-size: 14px;
+    color: var(--typo-ghost);
+
+    .title{
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0 14px;
+        background: var(--bg-ghost);
+        border-radius: 4px;
+        height: 32px;
+        cursor: pointer;
+        @include text-overflow;
+
+        .arrow{
+            width: 14px;
+            padding-left: 7px;
+            @include flex-c;
+        }
+    }
+
+    &:not([drop]){
+        .drop{
+            @include hidden(-10px);
+        }
+    }
+    
+    .drop{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 100%;
+        transition: .3s;
+        border-radius: 4px;
+        border: 1px solid var(--bg-border);
+        padding: 7px 7px;
+        max-height: 41vh;
+        overflow-y: auto;
+        z-index: 5;
+
+        .option{
+            cursor: pointer;
+            transition: .3s;
+            padding: 2.5px 7px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+
+            &:hover{
+                background: var(--bg-ghost);
+            }
+        }
+    }
+    
+}
+
+label.checkbox, label.radio{
+    display: flex;
+    padding-left: 1.8em;
+    min-height: 1.11em;
+    position: relative;
+
+    input{
+        display: none;
+    }
+
+    span{
+        font-size: inherit;
+
+        &::before{
+            @include pseudo-absolute;
+        }
+
+        &::before{
+            left: 0;
+            top: 0;
+            height: 1.11em;
+            width: 1.11em;
+            border-radius: 4px;
+            border: 1px solid var(--bg-border);
+            background: transparent;
+        }
+    }
+
+    &.checkbox {
+        input:checked+span{
+            color: var(--typo-primary);
+
+            &::before{
+                background: url(/img/checkbox.svg) var(--bg-control-ghost) center no-repeat;
+                border-color: var(--bg-border);
+                background-size: 78%;
+            }
+        }
+    }
+
+    &.radio{
+        span{
+            &::before{
+                border-radius: 50%;
+            }
+        }
+
+        input:checked+span::after{
+            @include pseudo-absolute;
+            height: 1.11em;
+            width: 1.11em;
+            top: .1px;
+            left: 0;
+            scale: .4;
+            border-radius: 50%;            
+            background: var(--typo-primary);
+        }
+    }
+}
+
+table.table-default{
+    border-collapse: collapse;
+    // max-width: 1003px;
+
+    :is(th,td):not(:last-child){
+        border-right: 1px solid var(--bg-border);
+    }
+
+    thead{
+        tr{
+            border-bottom: 1px solid var(--typo-secondary);
+
+            th{
+                font-weight: 400;
+                white-space: nowrap;
+                padding: 18.25px 12px;
+                font-weight: 600;
+
+                &:first-child{
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            &:nth-child(2n){
+                background: var(--bg-control-ghost-hover);
+            }
+
+            td{
+                padding: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "geomod-front",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "@vueform/slider": "^2.1.7",
+    "angular-expressions": "^1.1.9",
+    "apexcharts": "^3.41.0",
+    "axios": "^0.27.2",
+    "chroma-js": "^2.4.2",
+    "click-outside-vue3": "^4.0.1",
+    "compute-linspace": "^1.0.0",
+    "docxtemplater": "^3.40.2",
+    "docxtemplater-image-module-free": "^1.1.1",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jszip": "^3.10.1",
+    "leaflet": "^1.8.0",
+    "leaflet-geometryutil": "^0.10.1",
+    "leaflet.markercluster": "^1.5.3",
+    "maska": "^1.5.0",
+    "moment": "^2.29.4",
+    "moment-range": "^4.0.2",
+    "pinia": "^2.0.14",
+    "pizzip": "^3.1.4",
+    "plotly.js-dist-min": "^2.17.0",
+    "sass": "^1.52.3",
+    "v-calendar": "^3.0.0-alpha.8",
+    "vue": "^3.2.36",
+    "vue-color-input": "^1.0.6",
+    "vue-leaflet-custom-marker": "^1.0.0",
+    "vue-router": "^4.0.15",
+    "vue3-apexcharts": "^1.4.4",
+    "vue3-charts": "^1.1.31",
+    "vue3-touch-events": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue-leaflet/vue-leaflet": "github:0r94n1z3r/vue-leaflet",
+    "vite": "^2.9.9"
+  }
+}

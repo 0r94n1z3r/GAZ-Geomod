@@ -1,0 +1,83 @@
+@mixin hidden($shift){
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY($shift);
+}
+@mixin hidden-hor($shift){
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX($shift);
+}
+
+@mixin flex-c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flex-jtf{
+    display: flex;
+    justify-content: space-between;
+}
+@mixin flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@mixin pseudo{
+    content: '';
+    display: block;
+}
+
+@mixin pseudo-absolute{
+    @include pseudo;
+    position: absolute;
+}
+
+@mixin directions($top, $right, $bottom, $left){
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin all-directions($var){
+    @include directions($var, $var, $var, $var);
+}
+
+@mixin background-url($url, $size){
+    background: $url center no-repeat;
+    background-size: $size;
+}
+
+@mixin text-overflow{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin square($width){
+    width: $width;
+    position: relative;
+
+    &::after{
+        @include pseudo;
+        padding-bottom: 100%;
+    }
+
+    >*{
+        position: absolute;
+        @include all-directions(0)
+    }
+}
+
+@mixin pulse-anim {
+    @keyframes pulse {
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: .8;
+        }
+    }
+}
